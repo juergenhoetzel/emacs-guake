@@ -3,8 +3,11 @@ This repository provides a  [[http://guake-project.org/][Guake Terminal]] DBus i
 
 * Quickstart
 
+Installation using [[https://github.com/quelpa/quelpa-use-package][GitHub - quelpa/quelpa-use-package: Emacs quelpa handler for use-package]]
 #+begin_src sh
-git clone https://github.com/juergenhoetzel/emacs-guake
+(use-package guake
+  :quelpa (guake :fetcher github :repo "juergenhoetzel/emacs-guake")
+  :bind (("C-c g" . guake-switch-to-tab)))
 #+end_src
 
 Most likely you want to invoke =guake-switch-to-tab= with a global key combination.
