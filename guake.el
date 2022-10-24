@@ -60,18 +60,16 @@
 
 (defun guake-switch-to-tab ()
   "Switch to tab NAME and show Guake terminal."
-  (interactive
-   (list
-    (insert
-     (let* ((choices (mapcar (lambda (index)
-			      (let ((name (guake--call-rc "get_tab_name" :int32 index)))
-				   (prog1
-				       name
-				     (put-text-property 0 1 :_guake index name))))
-			     (number-sequence 0 (1- (guake-get-tab-count)))))
-	    (index (get-text-property 0 :_guake (completing-read "Tab: " choices))))
-       (guake-select-tab index)
-       (guake-show))))))
+  (interactive)
+  (let* ((choices (mapcar (lambda (index)
+			    (let ((name (guake--call-rc "get_tab_name" :int32 index)))
+			      (prog1
+				  name
+				(put-text-property 0 1 :_guake index name))))
+			  (number-sequence 0 (1- (guake-get-tab-count)))))
+	 (index (get-text-property 0 :_guake (completing-read "Tab: " choices))))
+    (guake-select-tab index)
+    (guake-show)))
 
 (provide 'guake)
 ;;; guake.el ends here
