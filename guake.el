@@ -4,6 +4,9 @@
 
 ;; Author: Jürgen Hötzel <juergen.hoetzel@hr.de>
 ;; Keywords: convenience
+;; Package-Requires: ((emacs "27.1"))
+;; Version:    0.1
+;; URL: https://github.com/juergenhoetzel/emacs-guake
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -29,6 +32,7 @@
 
 ;; helper
 (defun guake--call-rc (&rest args)
+  "Call DBus method (car ARGS) with (cdr ARGS)."
   (apply #'dbus-call-method
 	 :session "org.guake3.RemoteControl"
 	 "/org/guake3/RemoteControl"
@@ -36,18 +40,22 @@
 	 args))
 
 (defun guake-get-tab-count ()
+  "Return the number Guake tabs."
   (guake--call-rc "get_tab_count"))
 
 (defun guake-get-tab-names ()
+  "Return list of tab names."
   (mapcar (lambda (index)
 	      (guake--call-rc
 	       "get_tab_name" :int32 index))
 	    (number-sequence 0 (1- (guake-get-tab-count)))))
 
 (defun guake-show ()
+  "Show Guake terminal."
   (guake--call-rc "show"))
 
 (defun guake-select-tab (index)
+  "Select Tab at offset INDEX."
   (guake--call-rc "select_tab" :int32 index))
 
 (defun guake-switch-to-tab (name)
@@ -66,7 +74,7 @@
        (guake-show))))))
 
 (provide 'guake)
-
+;;; guake.el ends here
 
 
 
