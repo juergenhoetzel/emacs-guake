@@ -1,3 +1,4 @@
+[[https://github.com/juergenhoetzel/emacs-totp/actions][file:https://github.com/juergenhoetzel/emacs-guake/workflows/CI/badge.svg]]
 * Intro
 This repository provides a  [[http://guake-project.org/][Guake Terminal]] DBus integration.
 
