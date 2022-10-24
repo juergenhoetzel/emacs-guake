@@ -1,8 +1,6 @@
 * Intro
 This repository provides a  [[http://guake-project.org/][Guake Terminal]] DBus integration.
 
-* Screenshot
-
 * Quickstart
 
 #+begin_src sh
@@ -16,3 +14,11 @@ Most likely you want to invoke =guake-switch-to-tab= with a global key combinati
 
 #+RESULTS:
 : guake-switch-to-tab
+
+* Screenshot
+:PROPERTIES:
+:ID:       74300f33-2a0c-4a7e-bcd3-c1cbef6f6de7
+:END:
+
+#+CAPTION: guake-switch-to-tab
+[[./screenshots/switch-to-tab.png]]
