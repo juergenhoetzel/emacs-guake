@@ -1,0 +1,18 @@
+* Intro
+This repository provides a  [[http://guake-project.org/][Guake Terminal]] DBus integration.
+
+* Screenshot
+
+* Quickstart
+
+#+begin_src sh
+git clone https://github.com/juergenhoetzel/emacs-guake
+#+end_src
+
+Most likely you want to invoke =guake-switch-to-tab= with a global key combination.
+#+begin_src elisp
+  (global-set-key (kbd "C-c g") #'guake-switch-to-tab)
+#+end_src
+
+#+RESULTS:
+: guake-switch-to-tab
