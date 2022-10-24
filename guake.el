@@ -58,7 +58,7 @@
   "Select Tab at offset INDEX."
   (guake--call-rc "select_tab" :int32 index))
 
-(defun guake-switch-to-tab (name)
+(defun guake-switch-to-tab ()
   "Switch to tab NAME and show Guake terminal."
   (interactive
    (list
