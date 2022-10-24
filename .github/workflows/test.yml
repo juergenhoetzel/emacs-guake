@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    paths-ignore:
+      - '**.org'
+  pull_request:
+    paths-ignore:
+      - '**.org'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Set up Emacs
+      uses: purcell/setup-emacs@master
+      with:
+        version: 28.2
+
+    - name: Install Eldev
+      run: curl -fsSL https://raw.github.com/doublep/eldev/master/webinstall/github-eldev | sh
+
+    - name: Check out the source code
+      uses: actions/checkout@v2
+
+    - name: Run linter
+      run: |
+        eldev lint
+
+    - name: Byte-compile project
+      run: |
+        eldev -dtT -C compile --set all --warnings-as-errors
