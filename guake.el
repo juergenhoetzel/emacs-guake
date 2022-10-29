@@ -23,7 +23,7 @@
 
 ;;; Commentary:
 
-;; ;; Provides commands to interact with Guake http://guake-project.org/
+;; Provides commands to interact with Guake http://guake-project.org/
 
 ;;; Code:
 
